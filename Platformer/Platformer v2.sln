@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{DA6CE916-0377-3091-C96D-B6BE004C0411}") = "Platformer v2", "Assembly-CSharp.csproj", "{963DC330-8D63-54EC-CEF5-197BD28314EE}"
+EndProject
+Project("{DA6CE916-0377-3091-C96D-B6BE004C0411}") = "Platformer v2", "Assembly-UnityScript.unityproj", "{1F97AFB7-02AD-782C-71EA-54131EAD547D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{963DC330-8D63-54EC-CEF5-197BD28314EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963DC330-8D63-54EC-CEF5-197BD28314EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963DC330-8D63-54EC-CEF5-197BD28314EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963DC330-8D63-54EC-CEF5-197BD28314EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F97AFB7-02AD-782C-71EA-54131EAD547D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F97AFB7-02AD-782C-71EA-54131EAD547D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F97AFB7-02AD-782C-71EA-54131EAD547D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F97AFB7-02AD-782C-71EA-54131EAD547D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
