@@ -13,7 +13,7 @@ public class Checkpoint : MonoBehaviour {
 		if(other.tag == "Player" && firstTime == true){
 			firstTime = false;
 			spawnPoint.transform.position = new Vector3(transform.position.x, transform.position.y, spawnPoint.transform.position.z);
-			checkpointText.SetActive(true);
+			//checkpointText.SetActive(true);
 			checkpointText.GetComponent<restartAnimation>().resetAndPlay();
 			Destroy(gameObject);
 		}

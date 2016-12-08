@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 
 	bool grounded = false;
 	public Transform groundCheck;
-	float groundRadius = 0.2f;
+	float groundRadius = 0.5f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
 	public bool doubleJumpEnabled = false;

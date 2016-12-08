@@ -14,10 +14,10 @@ public class restartAnimation : MonoBehaviour {
 		curTime = 0f;
     }
 
-	void Update(){
+	/*void Update(){
 		curTime += Time.deltaTime;
 		if(curTime>=nSeconds){
 			gameObject.SetActive (false);
 		}
-	}
+	}*/
 }
