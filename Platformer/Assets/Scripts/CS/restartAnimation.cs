@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class restartAnimation : MonoBehaviour {
 	
-	public float nSeconds = 3;
 	public Animator anim;
-	private float curTime = 0f;
 
-	// Use this for initialization
-	public void resetAndPlay () {
-		anim.Play("Text", -1, 0f);
-		curTime = 0f;
+	public void resetAnimation() {
+		StartCoroutine("Wait");
     }
 
-	/*void Update(){
-		curTime += Time.deltaTime;
-		if(curTime>=nSeconds){
-			gameObject.SetActive (false);
-		}
-	}*/
+	public void startAnimation(){
+		anim.SetBool ("Active", true);
+	}
+
+	IEnumerator Wait(){
+		yield return new WaitForSeconds(1f);
+		anim.SetBool ("Active", false);
+	}
 }

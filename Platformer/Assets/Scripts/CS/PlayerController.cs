@@ -54,7 +54,6 @@ public class PlayerController : MonoBehaviour {
 				}
 					
 			}
-
 			PlayerMove (move);
 		}
 	}
@@ -87,7 +86,6 @@ public class PlayerController : MonoBehaviour {
 	public void PlayerMove(float move){
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (move * maxSpeed, GetComponent<Rigidbody2D> ().velocity.y);
-
 		if (move > 0 && !facingRight)
 			Flip ();
 		else if (move < 0 && facingRight)
