@@ -54,6 +54,8 @@
      <Compile Include="Assets\Scripts\CS\FloatingEffect.cs" />
      <Compile Include="Assets\Scripts\CS\GameControl.cs" />
      <Compile Include="Assets\Scripts\CS\Goal.cs" />
+     <Compile Include="Assets\Scripts\CS\MMPlatformer.cs" />
+     <Compile Include="Assets\Scripts\CS\MMRotator.cs" />
      <Compile Include="Assets\Scripts\CS\MainMenu.cs" />
      <Compile Include="Assets\Scripts\CS\Parallaxing.cs" />
      <Compile Include="Assets\Scripts\CS\Platformer.cs" />

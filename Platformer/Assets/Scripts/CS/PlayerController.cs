@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
 	public bool doubleJumpEnabled = false;
-
-	private bool doubleJump = false;
 	public bool usingMobileControls = false;
 	public float curMove = 0;
+
+	private bool doubleJump = false;
 
 	void Start () {
 		anim = GetComponent<Animator>();
@@ -91,5 +91,6 @@ public class PlayerController : MonoBehaviour {
 		else if (move < 0 && facingRight)
 			Flip ();
 	}
+		
 
 }
