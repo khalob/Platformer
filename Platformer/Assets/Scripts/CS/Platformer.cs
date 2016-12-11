@@ -22,6 +22,7 @@ public class Platformer : MonoBehaviour {
 	private float minX;
 	private float maxY;
 	private float maxX;
+	private Transform currentPassenger;
 
 	void Start () {
 		Xpos = gameObject.transform.position.x;
@@ -43,49 +44,68 @@ public class Platformer : MonoBehaviour {
 	}
 
 	void Update () {
-		if(!GameControl.control.Paused){
-			if(Timelimit){
+		if (!GameControl.control.Paused) {
+			if (Timelimit) {
 				elaspeTime += Time.deltaTime;
-			}else {
+			} else {
 				time = 0;
 			}
 
-			if(elaspeTime >= time){
+			if (elaspeTime >= time) {
 				//Set the max
-				if(Vert){//Vertical
-					if(gameObject.transform.position.y >= maxY){
+				if (Vert) {//Vertical
+					if (gameObject.transform.position.y >= maxY) {
 						max = true;
 						elaspeTime = 0;
-					}else if(gameObject.transform.position.y < minY){
+						//Prevents hop effect when platform changes directions
+						if(currentPassenger != null){
+							currentPassenger.GetComponent<Rigidbody2D> ().velocity = new Vector2 (currentPassenger.GetComponent<Rigidbody2D> ().velocity.x, -speed);
+						}
+					} else if (gameObject.transform.position.y < minY) {
 						max = false;
 						elaspeTime = 0;
 					}
-				}else{ //Horizontal
-					if(gameObject.transform.position.x >= maxX){
+				} else { //Horizontal
+					if (gameObject.transform.position.x >= maxX) {
 						max = true;
 						elaspeTime = 0;
-					}else if(gameObject.transform.position.x < minX){
+					} else if (gameObject.transform.position.x < minX) {
 						max = false;
 						elaspeTime = 0;
 					}
 				}
 
 				//Moving the platform!
-				if(Vert){ //Vertical movement
-					if(!max){
-						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( GetComponent<Rigidbody2D> ().velocity.x, speed);
-					}else{
-						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( GetComponent<Rigidbody2D> ().velocity.x, -speed);
+				if (Vert) { //Vertical movement
+					if (!max) {
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 (GetComponent<Rigidbody2D> ().velocity.x, speed);
+					} else {
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 (GetComponent<Rigidbody2D> ().velocity.x, -speed);
 					}
-				}else{ //Horizontal movement
-					if(!max){
-						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( speed, GetComponent<Rigidbody2D> ().velocity.y);
-					}else{
-						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( -speed, GetComponent<Rigidbody2D> ().velocity.y);
+				} else { //Horizontal movement
+					if (!max) {
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 (speed, GetComponent<Rigidbody2D> ().velocity.y);
+					} else {
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 (-speed, GetComponent<Rigidbody2D> ().velocity.y);
 					}
 				}
 			}
+		} else {
+			GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		}
+
+	}
+
+
+	void OnCollisionEnter2D(Collision2D other){
+		if (other.transform.tag == "Player") {
+			currentPassenger = other.transform;
 		}
 	}
-		
+
+	void OnCollisionExit2D(Collision2D other){
+		if (other.transform.tag == "Player") {
+			currentPassenger = null;
+		}
+	}
 }

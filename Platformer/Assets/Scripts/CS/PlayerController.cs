@@ -16,9 +16,8 @@ public class PlayerController : MonoBehaviour {
 	public float jumpForce = 700f;
 	public bool doubleJumpEnabled = false;
 	public bool usingMobileControls = false;
-	public float curMove = 0;
 
-	private float platformSpeed = 0f;
+	private float platformSpeedX = 0f;
 	private bool doubleJump = false;
 
 	void Start () {
@@ -86,7 +85,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void PlayerMove(float move){
 		anim.SetFloat ("Speed", Mathf.Abs (move));
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 ((move * maxSpeed) + platformSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 ((move * maxSpeed) + platformSpeedX, GetComponent<Rigidbody2D> ().velocity.y);
 		if (move > 0 && !facingRight)
 			Flip ();
 		else if (move < 0 && facingRight)
@@ -95,15 +94,14 @@ public class PlayerController : MonoBehaviour {
 		
 	void OnCollisionExit2D(Collision2D other){
 		if (other.transform.tag == "MovingPlatform") {
-			platformSpeed = 0f;
+			platformSpeedX = 0f;
 		}
 	}
 
 	void OnCollisionStay2D(Collision2D other){
 		if(other.transform.tag == "MovingPlatform"){
-			platformSpeed = other.transform.GetComponent<Rigidbody2D> ().velocity.x;
+			platformSpeedX = other.transform.GetComponent<Rigidbody2D> ().velocity.x;
 		}
 	}
-
 
 }
