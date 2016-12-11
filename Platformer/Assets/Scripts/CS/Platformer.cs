@@ -8,7 +8,7 @@ public class Platformer : MonoBehaviour {
 	public bool Timelimit;
 	public float time;
 	public float maxAmount;
-	public float step;
+	public float speed = 3f;
 	public enum hDirections {Left, Right};
 	public enum vDirections {Up, Down};
 	public hDirections startingHorizontalDirection = hDirections.Right;
@@ -73,15 +73,15 @@ public class Platformer : MonoBehaviour {
 				//Moving the platform!
 				if(Vert){ //Vertical movement
 					if(!max){
-						gameObject.transform.position = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y + step); 
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( GetComponent<Rigidbody2D> ().velocity.x, speed);
 					}else{
-						gameObject.transform.position = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y - step); 
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( GetComponent<Rigidbody2D> ().velocity.x, -speed);
 					}
 				}else{ //Horizontal movement
 					if(!max){
-						gameObject.transform.position = new Vector2 (gameObject.transform.position.x + step, gameObject.transform.position.y); 
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( speed, GetComponent<Rigidbody2D> ().velocity.y);
 					}else{
-						gameObject.transform.position = new Vector2 (gameObject.transform.position.x - step, gameObject.transform.position.y); 
+						GetComponent<Rigidbody2D> ().velocity = new Vector2 ( -speed, GetComponent<Rigidbody2D> ().velocity.y);
 					}
 				}
 			}
