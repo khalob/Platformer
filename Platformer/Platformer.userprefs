@@ -1,0 +1,18 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CS\PlayerController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\CS\PlayerController.cs" Line="18" Column="42" />
+      <File FileName="Assets\Scripts\CS\Checkpoint.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CS\restartAnimation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CS\Platformer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CS\GameControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CS\Collectable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\JS\PlayerRespawn.js" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
